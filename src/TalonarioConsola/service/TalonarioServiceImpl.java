@@ -1,28 +1,50 @@
 package TalonarioConsola.service;
 
-import java.util.LinkedList;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
+import TalonarioConsola.Conexion.ConexionMySQL;
 import TalonarioConsola.model.Talonario;
 
 
 public class TalonarioServiceImpl implements ITalonarioService {
 	
-	//crenado lista
-	List<Talonario> talonarios = null;
 	
-	public TalonarioServiceImpl() {
-		talonarios = new LinkedList<>();
-	
-	
-	}
 	
 	@Override
 	public boolean guardar(Talonario talonario) {
+		boolean hecho = false;
+		ConexionMySQL conexion = new ConexionMySQL();
+		Connection con = null;
+		PreparedStatement ps;
+		String sql = "INSERT INTO ESTUDIANTE (carnet ,descripcion , fecha, estado ) values(?,?,?,?)";
+		try {
+			con = conexion.getConexion();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, talonario.getCarnet());
+			ps.setString(1, talonario.getDescripcion());
+			ps.setString(1, talonario.getFecha());
+			ps.setString(1, talonario.getEstado);
+			ps.execute();
+			hecho = true;
+			
+		}catch (SQLException e) {
+				System.out.println(e);
+				
+		}finally {
+			try {
+				con.close();
+			}catch (SQLException e) {
+				//TODO Auto-generated catch block 
+				e.printStackTrace();
+				
+			}
+		}
 		 
-		talonarios.add(talonario);
-		
-		return true;
+		return hecho;
 	}
 
 	
@@ -34,7 +56,8 @@ public class TalonarioServiceImpl implements ITalonarioService {
 	}
 
 	@Override
-	public void modificar(Talonario talonario) {
+	public Talonario modificar(Talonario talonario) {
+		return talonario;
 		// TODO Auto-generated method stub
 		
 	

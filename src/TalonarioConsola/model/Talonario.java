@@ -7,5 +7,50 @@ public class Talonario {
 	String Descripcion;
 	String fecha;
 	String nombre;
+	public String getEstado;
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getCarnet() {
+		return Carnet;
+	}
+	public void setCarnet(String carnet) {
+		Carnet = carnet;
+	}
+	public String getDescripcion() {
+		return Descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		Descripcion = descripcion;
+	}
+	public String getFecha() {
+		return fecha;
+	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public void setEstado(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public boolean guardar(Talonario talonario) {
+		return false;
+		// TODO Auto-generated method stub
+		
+	}
 
+	
+	
 }
+  
