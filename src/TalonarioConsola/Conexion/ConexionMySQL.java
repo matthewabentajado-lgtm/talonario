@@ -10,8 +10,8 @@ import TalonarioConsola.model.Talonario;
 
 public class ConexionMySQL {
 
-    private final String user = "user01";              //Su usuario
-    private final String password = "password";        //Su contraseña
+    private final String user = "user1";              //Su usuario
+    private final String password = "03$0609";        //Su contraseña
     private final String url = "jdbc:mysql://localhost:3306/talonario"; //Tu BDD (registro)
     private final String driver = "com.mysql.cj.jdbc.Driver";          //Driver de MySQL
     private Connection con = null;
